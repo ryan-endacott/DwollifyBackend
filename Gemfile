@@ -15,7 +15,7 @@ gem 'figaro', '>= 1.0.0.rc1'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'omniauth'
-gem 'omniauth-github'
+gem 'omniauth-dwolla'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
