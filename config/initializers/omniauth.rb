@@ -1,3 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, Rails.application.secrets.omniauth_provider_key, Rails.application.secrets.omniauth_provider_secret
+  provider :dwolla, ENV['DWOLLA_KEY'], ENV['DWOLLA_SECRET'],
+    scope: 'accountinfofull|send', provider_ignores_state: true
 end
