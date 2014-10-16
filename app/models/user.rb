@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
       user.uid = auth['uid']
       user.refresh_token = auth['credentials']['refresh_token']
       user.access_token = auth['credentials']['token']
+      user.api_token = SecureRandom.uuid
       if auth['info']
          user.name = auth['info']['name'] || ""
       end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016062111) do
+ActiveRecord::Schema.define(version: 20141016062455) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20141016062111) do
     t.datetime "updated_at"
     t.text     "refresh_token"
     t.text     "access_token"
+    t.text     "api_token"
   end
 
 end
