@@ -9,11 +9,15 @@ class DwollaController < ApplicationController
     Dwolla::api_secret = ENV['DWOLLA_SECRET']
     Dwolla::token = current_user.access_token
 
-    transaction_result = Dwolla::Transactions.send(
-      destinationId: params[:email], pin: params[:pin],
-      destinationType: 'Email', amount: params[:amount])
+    begin
+      transaction_result = Dwolla::Transactions.send(
+        destinationId: params[:email], pin: params[:pin],
+        destinationType: 'Email', amount: params[:amount])
 
-    return "#{transaction_result}"
+    rescue Exception => e
+      render json: {error: e.to_s}, status: :bad_request and return
+    end
+
+    render json: {message: 'Success!'}, status: :OK
   end
-
 end
