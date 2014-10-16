@@ -2,19 +2,18 @@ class DwollaController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
+  before_filter :authenticate_user!
+
   def send_payment
     Dwolla::api_key = ENV['DWOLLA_KEY']
     Dwolla::api_secret = ENV['DWOLLA_SECRET']
-    Dwolla::debug = true
+    Dwolla::token = current_user.access_token
 
-    user = User.first
-    Dwolla::token = user.access_token
+    transaction_result = Dwolla::Transactions.send(
+      destinationId: params[:email], pin: params[:pin],
+      destinationType: 'Email', amount: params[:amount])
 
-    transaction_id = Dwolla::Transactions.send(
-      destinationId: 'rzeg24@gmail.com', pin: 9999,
-      destinationType: 'Email', amount: 1.00)
-
-    return "#{transaction_id}"
+    return "#{transaction_result}"
 
   end
 
