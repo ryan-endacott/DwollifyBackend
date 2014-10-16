@@ -16,6 +16,7 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-dwolla'
+gem 'dwolla-ruby'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
