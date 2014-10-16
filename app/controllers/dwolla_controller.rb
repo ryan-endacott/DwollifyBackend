@@ -14,7 +14,6 @@ class DwollaController < ApplicationController
       destinationType: 'Email', amount: params[:amount])
 
     return "#{transaction_result}"
-
   end
 
 end
