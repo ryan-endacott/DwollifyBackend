@@ -18,6 +18,6 @@ class DwollaController < ApplicationController
       render json: {error: e.to_s}, status: :bad_request and return
     end
 
-    render json: {message: 'Success!'}, status: :OK
+    render json: {message: 'Success!'}, status: :ok
   end
 end

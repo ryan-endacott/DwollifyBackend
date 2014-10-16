@@ -12,8 +12,16 @@ describe "POST 'send_payment'", :omniauth do
     expect(response.response_code).to eq(401)
   end
 
-  it "succeeds with correct oauth" do
-    post '/send_payment', format: :json, uid: '60', api_token: '1'
+  it "calls with correct auth and returns 200 if no errors" do
+    allow(Dwolla::Transactions).to receive(:send).and_return('Success!')
+    expect(Dwolla::Transactions).to receive(:send).with({
+      destinationId: 'hello@world.com',
+      destinationType: 'Email',
+      amount: '1',
+      pin: '1111'
+    })
+    post '/send_payment', format: :json, uid: '60', api_token: '1',
+        amount: 1, email: 'hello@world.com', pin: 1111
     expect(response.response_code).to eq(200)
   end
 
