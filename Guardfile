@@ -32,5 +32,10 @@ guard :rspec do
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
+
+  # Features in spec/features
+  watch(%r{^app/.*\.rb$})                           { "spec/features" }
+  watch('config/routes.rb')                         { "spec/features" }
+
 end
 
