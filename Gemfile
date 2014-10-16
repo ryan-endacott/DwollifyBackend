@@ -15,7 +15,7 @@ gem 'figaro', '>= 1.0.0.rc1'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'omniauth'
-gem 'omniauth-dwolla'
+gem 'omniauth-dwolla', '0.0.16'
 gem 'dwolla-ruby'
 gem 'simple_form'
 group :development do
