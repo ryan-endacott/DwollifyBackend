@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     def current_user
       begin
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        @current_user ||=
+            User.where(uid: params[:uid], api_token: params[:api_token]).first
       rescue Exception => e
         nil
       end
