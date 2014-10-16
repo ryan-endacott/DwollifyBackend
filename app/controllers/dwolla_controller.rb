@@ -1,0 +1,2 @@
+class DwollaController < ApplicationController
+end
