@@ -16,9 +16,9 @@ describe SessionsController, :omniauth do
       expect(session[:user_id]).not_to be_nil
     end
 
-    it "redirects to the home page" do
+    it "redirects to the credentials page" do
       post :create, provider: :dwolla
-      expect(response).to redirect_to root_url
+      expect(response).to redirect_to credentials_url
     end
 
   end

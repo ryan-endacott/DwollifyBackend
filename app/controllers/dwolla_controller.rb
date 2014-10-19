@@ -20,4 +20,8 @@ class DwollaController < ApplicationController
 
     render json: {message: 'Success!'}, status: :ok
   end
+
+  def credentials
+  end
+
 end

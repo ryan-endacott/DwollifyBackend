@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
   post '/send_payment' => 'dwolla#send_payment'
+  get '/credentials' => 'dwolla#credentials'
 end

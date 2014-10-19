@@ -10,8 +10,9 @@ class SessionsController < ApplicationController
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
     reset_session
     session[:user_id] = user.id
-    redirect_to root_url,
-        :notice => "ID: #{user.uid}, API token: #{user.api_token}"
+
+    redirect_to credentials_url,
+        :notice => "You have been signed in!  The extension should connect shortly."
   end
 
   def destroy
