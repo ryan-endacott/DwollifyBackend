@@ -22,18 +22,13 @@
         .cover-container
           .masthead.clearfix
             = render 'layouts/navigation'
+          = render 'layouts/messages'
           .inner.cover
-            = render 'layouts/messages'
             = yield
-            %h1.cover-heading Cover your page.
-            %p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
-            %p.lead
-              %a.btn.btn-lg.btn-default{:href => "#"} Learn more
+
           .mastfoot
             .inner
               %p
-                Cover template for
-                = succeed "," do
-                  %a{:href => "http://getbootstrap.com"} Bootstrap
+                Made by
                 = succeed "." do
-                  %a{:href => "https://twitter.com/mdo"} @mdo
+                  %a{:href => "http://twitter.com/RyanEndacott"} @RyanEndacott
