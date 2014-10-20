@@ -1,6 +1,7 @@
 <%# add navigation links to this file %>
+<li><%= nav_link 'Home', root_path %></li>
 <% if user_signed_in? %>
-  <li><%= link_to 'Refresh Credentials', credentials_path %></li>
+  <li><%= nav_link 'Refresh Credentials', credentials_path %></li>
 <% end %>
 <% if user_signed_in? %>
   <li><%= link_to 'Sign out', signout_path %></li>
